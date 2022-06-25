@@ -5,6 +5,7 @@ import Card from './demo1';
 import MovieCard from "./MovieCard";
 import Information from "./Information";
 import './movieList.css';
+import { Pagination } from "@mui/material";
 
 
 
@@ -13,9 +14,16 @@ const FetchMovie = () => {
     const[movieList, setMovieList]  = useState([]);
     const [searchs, setSearchs] = useState("");
     const [filteredData, setFilteredData] = useState(movieList);
+    const [currentPage, setCurrentPage] = useState(1);
+    
+    const[offset,setOffset] = useState(1)
+    const[pages, setPages] = useState();
+    const perpage = 5;
+    
+   
     
     
-
+   
     var movies = [];
 
     // async function fetchData (){
@@ -31,7 +39,7 @@ const FetchMovie = () => {
     //         console.log(error);
     //     }
     //   }
-    var count = 1;
+  
     async function fetchMovie()
     {
       for(var i=0;i<Data.length;i++)
@@ -41,10 +49,14 @@ const FetchMovie = () => {
       //  Data["Id"] = count;
        setMovieList(Data);
        movies = movieList;
-      //  count++;
+    
+    
+      setPages(Math.ceil((Data.length)/perpage))
+      // console.log(pages.length)
     }
       
-      
+    
+
       useEffect(() => {
         fetchMovie()
         
@@ -53,6 +65,13 @@ const FetchMovie = () => {
 // var title = Data[0]["Title"];
 // console.log(title)
 
+  const handleClick = (e) => {
+     var value = e.target.textContent;
+     setCurrentPage(value);
+     setOffset((value-1)*(perpage))
+     console.log(value);
+
+  }
 
   const SearchString = (e) => {
     
@@ -110,7 +129,8 @@ const FetchMovie = () => {
      
     )):
     (
-      movieList.map((movie) =>
+      movieList.slice(offset,offset+perpage).map((movie) =>
+      
       // <li>
       //     <ul>{movie.Awards}</ul>
       //     <ul>{movie.Actors}</ul> 
@@ -133,7 +153,8 @@ const FetchMovie = () => {
     )
     )
     }
-   
+    
+   <div><Pagination count={pages}  color="primary" onClick={handleClick} hidePrevButton hideNextButton  /></div>
     </>
   );
 
