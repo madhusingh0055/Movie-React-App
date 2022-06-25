@@ -14,11 +14,11 @@ import Information from './Information';
 
 
 
-export default function RecipeReviewCard(props) {
+export default function MovieCard(props) {
 
 
   var num = props.Id;
-  var links = "/Information/"+ num;
+  var links = "/Movie/"+ num;
   var title = props.Title;
   var plot = props.Plot;
   var image1 = props.Images;
@@ -42,9 +42,7 @@ export default function RecipeReviewCard(props) {
           <FavoriteIcon />
         </IconButton>
         {/* <Link to={links}>Read More</Link> */}
-        <Link to={links}  state={{ from: {title,plot,image1} }}>
-  Next Step
-</Link>
+        <Link to={links}  state={{ from: {title,plot,image1} }}>Read More</Link>
         
       </CardActions>
     </Card>

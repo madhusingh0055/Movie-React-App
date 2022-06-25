@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<FetchMovie />} /> 
-          <Route path="/Information/:Id" element={<Information />} />
+          <Route path="/Movie/:Id" element={<Information />} />
       </Routes>
     </BrowserRouter>
      
