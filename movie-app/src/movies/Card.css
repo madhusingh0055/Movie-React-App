@@ -10,7 +10,7 @@
 
 
 .movie-card:hover .overlay {
-	opacity: 1;
+	opacity: 2;
 }
 
 .overlay {
@@ -27,8 +27,38 @@
 
 .card-container{
   margin-top: 20px;
-  float: right;
+  float: left;
   padding: 20px 20px;
  
 }
+
+.header{
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: rgb(247, 156, 156);
+	font-family: 'Lato', sans-serif;
+	
+}
+
+body {
+	background-color: #000000;
+	color: #ffffff;
+}
+
+.card-footer{
+	background-color: rgb(56, 55, 50);
+	height: 10px;
+}
+
+.link{
+	text-decoration: none;
+  color: white;
+  text-align: center;
+  
+  
+}
+
+
 

@@ -1,7 +1,45 @@
 
 
 .searchbar>input {
-    height: 40px;
-    width: 400px;
+    height: 50px;
+    width: 50%;
     border-color: white;
+    border-radius: 8px;
+    text-align: center;
+    font-size: large;
+    margin-left: 25%;
+    margin-top: 3%;
+    
+}
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    
+  }
+
+.pagination
+{
+    
+   background-color: white;
+   border-radius: 4px;
+   height: fit-content;
+   width: fit-content;
+   margin-left: 40%;
+}
+
+.movie-info{
+    margin-left: 10%;
+    height: 70%;
+    
+}
+
+/* .searchbar{
+    padding: 40px 40px;
+   padding-left: 400px;
+} */
+
+.wrapper{
+    display:flex;
+    flex-direction: column;
 }

@@ -18,7 +18,7 @@ const FetchMovie = () => {
     
     const[offset,setOffset] = useState(1)
     const[pages, setPages] = useState();
-    const perpage = 5;
+    const perpage = 12;
     
    
     
@@ -104,9 +104,13 @@ const FetchMovie = () => {
 
   return (
     <>
-    <div className="searchbar"> <input type="text" onChange={SearchString} value={searchs}  placeholder = "Search by title...."></input></div>
+    
      
-    { filteredData.length>0 ?
+    <div className="wrapper">
+    <div className="searchbar"> <input type="text" onChange={SearchString} value={searchs}  placeholder = "Search By Movie Name....."></input></div>
+
+    <div className="movie-info">
+   { filteredData.length>0 ?
       ( filteredData.map((movie) =>
       // <li>
       //     <ul>{movie.Awards}</ul>
@@ -122,7 +126,7 @@ const FetchMovie = () => {
       // </li>
   
      <div>
-       <MovieCard Title = {movie.Title} Images = {movie.Images[0]}  Plot = {movie.Plot} Id = {movie.Id}/>
+       <MovieCard Title = {movie.Title} Poster = {movie.Poster}  Plot = {movie.Plot} Id = {movie.Id}/>
        
        
      </div>
@@ -144,8 +148,12 @@ const FetchMovie = () => {
       //     <ul>{movie.completed.toString}</ul> */}
       // </li>
   
+
+     
+
      <div>
-       <MovieCard Title = {movie.Title} Images = {movie.Images[0]}  Plot = {movie.Plot} Id = {movie.Id}/>
+       <MovieCard Title = {movie.Title} Poster = {movie.Poster}  Plot = {movie.Plot} Id = {movie.Id} Year = {movie.Year} i
+       mdbRating = {movie.imdbRating} Released = {movie.Released} Runtime = {movie.Runtime} Genre = {movie.Genre} Actors = {movie.Actors} />
        
        
      </div>
@@ -154,7 +162,10 @@ const FetchMovie = () => {
     )
     }
     
-   <div><Pagination count={pages}  color="primary" onClick={handleClick} hidePrevButton hideNextButton  /></div>
+   </div>
+  
+   <div className="pagination"><Pagination count={pages}  color="primary" onClick={handleClick} hidePrevButton hideNextButton  /></div>
+    </div>
     </>
   );
 
